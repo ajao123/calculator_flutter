@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main(){
   runApp(MaterialApp(
@@ -13,7 +17,35 @@ class HOME extends StatefulWidget {
 
 class _HOMEState extends State<HOME> {
 
+  List _toDoListOperations = [];
   final calculadoraController = TextEditingController();
+
+  void _addToDo(String operation){
+    setState(() {
+      _toDoListOperations.add(operation+calculadoraController.text);
+    });
+  }
+
+  Future<File> _getFile() async {
+    final directory = await getApplicationDocumentsDirectory();
+    return File("${directory.path}/data.json");
+  }
+
+  Future<File> _saveData() async{
+    String data = json.encode(_toDoListOperations);
+    final file = await _getFile();
+    return file.writeAsString(data);
+  }
+
+  Future<String> _readData() async{
+    try{
+      final file = await _getFile();
+
+      return file.readAsString();
+    }catch(e){
+      return null;
+    }
+  }
 
 
   double calcular(String expression){
@@ -85,9 +117,29 @@ class _HOMEState extends State<HOME> {
         centerTitle: true,
         backgroundColor: Colors.green,
       ),
-      body: Column(
+      body: Padding(padding: EdgeInsets.all(10.0),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          Expanded(
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                child:ListView.builder(
+                  itemCount: _toDoListOperations.length,
+                  itemBuilder: (context, index){
+                    return Container(
+                      child:
+                      Text(_toDoListOperations[index], style:
+                      TextStyle(color: Colors.greenAccent, fontSize: 40.0),textAlign: TextAlign.center,),
+                    );
+                  },
+                ),
+                decoration: BoxDecoration(
+                  border: new Border.all(color: Colors.black),
+                  borderRadius: new BorderRadius.circular(30.0),
+                ),
+              )
+          ),
 
           Padding(
               padding: EdgeInsets.all(2.0),
@@ -373,14 +425,16 @@ class _HOMEState extends State<HOME> {
                 padding: EdgeInsets.all(2.0),
                 child: Container(
 
-                  width: MediaQuery.of(context).size.width/1.5,
+                  width: MediaQuery.of(context).size.width/2.2,
                   height: 50.0,
                   child: RaisedButton(
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     onPressed: (){
-                      calculadoraController.text = calculadoraController.text+" = "+calcular(calculadoraController.text).toString();
+                      String operations = calculadoraController.text;
+                      calculadoraController.text = calcular(calculadoraController.text).toString();
+                      _addToDo(operations+" = ");
                     },
                     color: Colors.green,
                     child: Text("=",
@@ -402,13 +456,29 @@ class _HOMEState extends State<HOME> {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(2.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width/4.5,
+                  child: RaisedButton(
+                    onPressed: (){
+                      setState(() {
+                        _toDoListOperations = [];
+                      });
+                    },
+                    color: Colors.green,
+                    child: Text("E",
+                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                  ),
+                ),
+              ),
 
             ],
           ),
 
-
         ],
-      ),
+      )
+        ,)
     );
   }
 }
