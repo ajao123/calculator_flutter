@@ -117,368 +117,374 @@ class _HOMEState extends State<HOME> {
         centerTitle: true,
         backgroundColor: Colors.green,
       ),
-      body: Padding(padding: EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child:ListView.builder(
-                  itemCount: _toDoListOperations.length,
-                  itemBuilder: (context, index){
-                    return Container(
-                      child:
-                      Text(_toDoListOperations[index], style:
-                      TextStyle(color: Colors.greenAccent, fontSize: 40.0),textAlign: TextAlign.center,),
-                    );
-                  },
-                ),
-                decoration: BoxDecoration(
-                  border: new Border.all(color: Colors.black),
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-              )
-          ),
+      body: SingleChildScrollView(
 
-          Padding(
-              padding: EdgeInsets.all(2.0),
-              child: Container(
-                height: 100.0,
-                width: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: new BorderRadius.circular(20.0),
-                ),
-                child: buildTextFields(
-                    "",
-                    InputBorder.none,
-                    false,
-                    new BorderRadius.circular(30.0),
-                    EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 10.0),
-                    calculadoraController
-                ),
-              )
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Padding(padding: EdgeInsets.all(10.0),
+
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"1";
-                    },
-                    color: Colors.green,
-                    child: Text("1",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"2";
-                    },
-                    color: Colors.green,
-                    child: Text("2",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"3";
-                    },
-                    color: Colors.green,
-                    child: Text("3",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"+";
-                    },
-                    color: Colors.green,
-                    child: Text("+",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"4";
-                    },
-                    color: Colors.green,
-                    child: Text("4",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"5";
-                    },
-                    color: Colors.green,
-                    child: Text("5",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"6";
-                    },
-                    color: Colors.green,
-                    child: Text("6",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"-";
-                    },
-                    color: Colors.green,
-                    child: Text("-",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"7";
-                    },
-                    color: Colors.green,
-                    child: Text("7",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"8";
-                    },
-                    color: Colors.green,
-                    child: Text("8",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"9";
-                    },
-                    color: Colors.green,
-                    child: Text("9",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"x";
-                    },
-                    color: Colors.green,
-                    child: Text("x",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"0";
-                    },
-                    color: Colors.green,
-                    child: Text("0",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = "";
-                    },
-                    color: Colors.green,
-                    child: Text("C",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      List<String> values = calculadoraController.text.split("");
-                      String msgs = "";
-                      for(int i = 0; i < values.length-1; i++){
-                        msgs+=values[i];
-                      }
-                      calculadoraController.text = msgs;
-                    },
-                    color: Colors.green,
-                    child: Text("CE",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"/";
-                    },
-                    color: Colors.green,
-                    child: Text("/",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
-              ),
-
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-
-                  width: MediaQuery.of(context).size.width/2.2,
-                  height: 50.0,
-                  child: RaisedButton(
-                    shape: new RoundedRectangleBorder(
+              Flexible(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height/3,
+                    padding: EdgeInsets.all(10.0),
+                    child:ListView.builder(
+                      itemCount: _toDoListOperations.length,
+                      itemBuilder: (context, index){
+                        return Container(
+                          child:
+                          Text(_toDoListOperations[index], style:
+                          TextStyle(color: Colors.greenAccent, fontSize: 40.0),textAlign: TextAlign.center,),
+                        );
+                      },
+                    ),
+                    decoration: BoxDecoration(
+                      border: new Border.all(color: Colors.black),
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
-                    onPressed: (){
-                      String operations = calculadoraController.text;
-                      calculadoraController.text = calcular(calculadoraController.text).toString();
-                      _addToDo(operations+" = ");
-                    },
-                    color: Colors.green,
-                    child: Text("=",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
+                  )
               ),
+
               Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      calculadoraController.text = calculadoraController.text+"%";
-                    },
-                    color: Colors.green,
-                    child: Text("%",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
-                  ),
-                ),
+                  padding: EdgeInsets.all(2.0),
+                  child: Container(
+                    height: 100.0,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: new BorderRadius.circular(20.0),
+                    ),
+                    child: buildTextFields(
+                        "",
+                        InputBorder.none,
+                        false,
+                        new BorderRadius.circular(30.0),
+                        EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 10.0),
+                        calculadoraController
+                    ),
+                  )
               ),
-              Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width/4.5,
-                  child: RaisedButton(
-                    onPressed: (){
-                      setState(() {
-                        _toDoListOperations = [];
-                      });
-                    },
-                    color: Colors.green,
-                    child: Text("E",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0)),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"1";
+                        },
+                        color: Colors.green,
+                        child: Text("1",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"2";
+                        },
+                        color: Colors.green,
+                        child: Text("2",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"3";
+                        },
+                        color: Colors.green,
+                        child: Text("3",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"+";
+                        },
+                        color: Colors.green,
+                        child: Text("+",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"4";
+                        },
+                        color: Colors.green,
+                        child: Text("4",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"5";
+                        },
+                        color: Colors.green,
+                        child: Text("5",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"6";
+                        },
+                        color: Colors.green,
+                        child: Text("6",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"-";
+                        },
+                        color: Colors.green,
+                        child: Text("-",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"7";
+                        },
+                        color: Colors.green,
+                        child: Text("7",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"8";
+                        },
+                        color: Colors.green,
+                        child: Text("8",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"9";
+                        },
+                        color: Colors.green,
+                        child: Text("9",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"x";
+                        },
+                        color: Colors.green,
+                        child: Text("x",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"0";
+                        },
+                        color: Colors.green,
+                        child: Text("0",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = "";
+                        },
+                        color: Colors.green,
+                        child: Text("C",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          List<String> values = calculadoraController.text.split("");
+                          String msgs = "";
+                          for(int i = 0; i < values.length-1; i++){
+                            msgs+=values[i];
+                          }
+                          calculadoraController.text = msgs;
+                        },
+                        color: Colors.green,
+                        child: Text("CE",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"/";
+                        },
+                        color: Colors.green,
+                        child: Text("/",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+
+                      width: MediaQuery.of(context).size.width/2.2,
+                      height: 50.0,
+                      child: RaisedButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        onPressed: (){
+                          String operations = calculadoraController.text;
+                          calculadoraController.text = calcular(calculadoraController.text).toString();
+                          _addToDo(operations+" = ");
+                        },
+                        color: Colors.green,
+                        child: Text("=",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          calculadoraController.text = calculadoraController.text+"%";
+                        },
+                        color: Colors.green,
+                        child: Text("%",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/4.5,
+                      child: RaisedButton(
+                        onPressed: (){
+                          setState(() {
+                            _toDoListOperations = [];
+                          });
+                        },
+                        color: Colors.green,
+                        child: Text("E",
+                            style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                  ),
+
+                ],
               ),
 
             ],
-          ),
-
-        ],
+          )
+          ,),
       )
-        ,)
     );
   }
 }
